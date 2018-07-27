@@ -7,6 +7,10 @@
     <div class="question-number">Question {{ question_number }} / {{ nb_questions }}</div>
     <div class="question-body">
       <h1 class="question-title">{{ question.label }}</h1>
+      {% if question.points > 1 %}
+        <p>Cette question vaut {{ question.points }} points !</p>
+      {% endif %}
+
       <form method="post" action="">
         {% csrf_token %}
         {% for option in options %}
